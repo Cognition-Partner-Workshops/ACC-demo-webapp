@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Example Co. All rights reserved.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="page.top">
+            <block class="Example\Storefront\Block\PromoRibbon"
+                   name="example.storefront.promo.ribbon"
+                   template="Example_Storefront::promo/ribbon.phtml"
+                   before="-"/>
+        </referenceContainer>
+    </body>
+</page>

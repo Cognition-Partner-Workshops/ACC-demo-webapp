@@ -1,0 +1,14 @@
+<?php
+/**
+ * Copyright © Example Co. All rights reserved.
+ *
+ * @var \Example\Storefront\Block\PromoRibbon $block
+ * @var \Magento\Framework\Escaper $escaper
+ */
+?>
+<div class="example-storefront-promo-ribbon" role="region"
+     aria-label="<?= $escaper->escapeHtmlAttr(__('Promotional banner')) ?>">
+    <p class="example-storefront-promo-ribbon__message">
+        <?= $escaper->escapeHtml($block->getMessage()) ?>
+    </p>
+</div>
