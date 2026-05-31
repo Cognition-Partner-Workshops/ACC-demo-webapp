@@ -8,4 +8,6 @@
         xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <preference for="Example\Storefront\Api\GreeterInterface"
                 type="Example\Storefront\Model\Greeter"/>
+    <preference for="Example\Storefront\Api\CatalogBadgeInterface"
+                type="Example\Storefront\Model\CatalogBadge"/>
 </config>
