@@ -1,0 +1,19 @@
+{
+    "example_storefront_subscription": {
+        "column": {
+            "subscription_id": true,
+            "customer_id": true,
+            "product_id": true,
+            "cadence": true,
+            "next_delivery_date": true,
+            "status": true
+        },
+        "index": {
+            "EXAMPLE_STOREFRONT_SUBSCRIPTION_CUSTOMER_ID": true,
+            "EXAMPLE_STOREFRONT_SUBSCRIPTION_STATUS_NEXT_DELIVERY": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

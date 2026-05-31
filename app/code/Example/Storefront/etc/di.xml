@@ -8,4 +8,10 @@
         xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <preference for="Example\Storefront\Api\GreeterInterface"
                 type="Example\Storefront\Model\Greeter"/>
+    <preference for="Example\Storefront\Api\Data\SubscriptionInterface"
+                type="Example\Storefront\Model\Subscription"/>
+    <preference for="Example\Storefront\Api\SubscriptionRepositoryInterface"
+                type="Example\Storefront\Model\SubscriptionRepository"/>
+    <preference for="Example\Storefront\Api\SubscriptionManagementInterface"
+                type="Example\Storefront\Model\SubscriptionManagement"/>
 </config>
