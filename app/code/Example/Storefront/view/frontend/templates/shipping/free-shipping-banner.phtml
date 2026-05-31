@@ -1,0 +1,13 @@
+<?php
+/**
+ * Copyright © Example Co. All rights reserved.
+ */
+
+declare(strict_types=1);
+
+/** @var \Example\Storefront\Block\FreeShippingBanner $block */
+/** @var \Magento\Framework\Escaper $escaper */
+?>
+<div class="message info free-shipping-banner" role="status">
+    <span><?= $escaper->escapeHtml($block->getBannerMessage()) ?></span>
+</div>
