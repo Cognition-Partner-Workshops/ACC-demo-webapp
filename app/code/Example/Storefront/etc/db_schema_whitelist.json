@@ -1,0 +1,27 @@
+{
+    "example_storefront_banner": {
+        "column": {
+            "banner_id": true,
+            "title": true,
+            "subtitle": true,
+            "image_url": true,
+            "cta_label": true,
+            "cta_link": true,
+            "sort_order": true,
+            "is_active": true,
+            "created_at": true,
+            "updated_at": true,
+            "store_id": true,
+            "customer_group_id": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        },
+        "index": {
+            "EXAMPLE_STOREFRONT_BANNER_IS_ACTIVE": true,
+            "EXAMPLE_STOREFRONT_BANNER_SORT_ORDER": true,
+            "EXAMPLE_STOREFRONT_BANNER_STORE_ID": true,
+            "EXAMPLE_STOREFRONT_BANNER_ACTIVE_STORE_SORT": true
+        }
+    }
+}

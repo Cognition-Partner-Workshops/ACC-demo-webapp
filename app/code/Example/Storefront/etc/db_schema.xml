@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Example Co. All rights reserved.
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="example_storefront_banner" resource="default" engine="innodb"
+           comment="Hero Banner Table">
+        <column xsi:type="int" name="banner_id" unsigned="true" nullable="false" identity="true"
+                comment="Banner ID"/>
+        <column xsi:type="varchar" name="title" nullable="false" length="255"
+                comment="Banner Title"/>
+        <column xsi:type="text" name="subtitle" nullable="true" comment="Banner Subtitle"/>
+        <column xsi:type="varchar" name="image_url" nullable="false" length="512"
+                comment="Image URL"/>
+        <column xsi:type="varchar" name="cta_label" nullable="true" length="255"
+                comment="CTA Button Label"/>
+        <column xsi:type="varchar" name="cta_link" nullable="true" length="512"
+                comment="CTA Button Link"/>
+        <column xsi:type="smallint" name="sort_order" unsigned="true" nullable="false" default="0"
+                comment="Sort Order"/>
+        <column xsi:type="boolean" name="is_active" nullable="false" default="true"
+                comment="Is Active"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false"
+                default="CURRENT_TIMESTAMP" comment="Created At"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false"
+                default="CURRENT_TIMESTAMP" comment="Updated At"/>
+        <column xsi:type="smallint" name="store_id" unsigned="true" nullable="false" default="0"
+                comment="Store ID (0 = all stores)"/>
+        <column xsi:type="int" name="customer_group_id" unsigned="true" nullable="true"
+                comment="Customer Group ID (null = all groups)"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="banner_id"/>
+        </constraint>
+        <index referenceId="EXAMPLE_STOREFRONT_BANNER_IS_ACTIVE"
+               indexType="btree">
+            <column name="is_active"/>
+        </index>
+        <index referenceId="EXAMPLE_STOREFRONT_BANNER_SORT_ORDER"
+               indexType="btree">
+            <column name="sort_order"/>
+        </index>
+        <index referenceId="EXAMPLE_STOREFRONT_BANNER_STORE_ID"
+               indexType="btree">
+            <column name="store_id"/>
+        </index>
+        <index referenceId="EXAMPLE_STOREFRONT_BANNER_ACTIVE_STORE_SORT"
+               indexType="btree">
+            <column name="is_active"/>
+            <column name="store_id"/>
+            <column name="sort_order"/>
+        </index>
+    </table>
+</schema>
