@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order History — Nestlé MENA B2B</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="preview-badge">PREVIEW — Example/nestle Theme</div>
+
+    <div class="top-bar">
+        <div class="top-bar__inner">
+            <div class="top-bar__left">
+                <span class="top-bar__region">Middle East &amp; North Africa</span>
+            </div>
+            <div class="top-bar__right">
+                <a href="contact.html" class="top-bar__link">Contact Us</a>
+                <a href="account.html" class="top-bar__link">My Account</a>
+            </div>
+        </div>
+    </div>
+
+    <header class="main-header">
+        <div class="main-header__inner">
+            <a href="index.html" class="main-header__logo">
+                <div class="main-header__logo-icon">
+                    <img src="img/nestle-logo.svg" alt="Nestlé" width="120" height="60">
+                </div>
+            </a>
+            <nav class="main-nav">
+                <ul class="main-nav__list">
+                    <li><a href="index.html" class="main-nav__link">Home</a></li>
+                    <li><a href="catalog.html" class="main-nav__link">Product Catalog</a></li>
+                    <li><a href="quick-order.html" class="main-nav__link">Quick Order</a></li>
+                    <li><a href="quote.html" class="main-nav__link">Request Quote</a></li>
+                    <li><a href="account.html" class="main-nav__link main-nav__link--active">Account</a></li>
+                </ul>
+            </nav>
+            <button class="main-header__hamburger" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="page-hero">
+        <h1>Order History</h1>
+        <p>Track, manage, and reorder from your complete order history</p>
+    </div>
+
+    <div class="page-container">
+        <div class="catalog-filters" style="margin-bottom: 24px;">
+            <button class="catalog-filter catalog-filter--active">All Orders</button>
+            <button class="catalog-filter">Pending</button>
+            <button class="catalog-filter">Processing</button>
+            <button class="catalog-filter">Shipped</button>
+            <button class="catalog-filter">Delivered</button>
+        </div>
+
+        <table class="orders-table">
+            <thead>
+                <tr>
+                    <th>Order #</th>
+                    <th>Date</th>
+                    <th>Items</th>
+                    <th>Total (AED)</th>
+                    <th>Payment</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>ORD-2024-1847</strong></td>
+                    <td>Dec 10, 2024</td>
+                    <td>12 items</td>
+                    <td><strong>14,250.00</strong></td>
+                    <td>Net 30</td>
+                    <td><span class="status-badge status-badge--shipped">Shipped</span></td>
+                    <td>
+                        <a href="#" style="color: #003DA5; font-weight: 600; margin-right: 12px;">Track</a>
+                        <a href="#" style="color: #003DA5; font-weight: 600;">Invoice</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>ORD-2024-1832</strong></td>
+                    <td>Dec 05, 2024</td>
+                    <td>8 items</td>
+                    <td><strong>8,720.00</strong></td>
+                    <td>Net 30</td>
+                    <td><span class="status-badge status-badge--delivered">Delivered</span></td>
+                    <td>
+                        <a href="#" style="color: #003DA5; font-weight: 600; margin-right: 12px;">Reorder</a>
+                        <a href="#" style="color: #003DA5; font-weight: 600;">Invoice</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>ORD-2024-1815</strong></td>
+                    <td>Nov 28, 2024</td>
+                    <td>15 items</td>
+                    <td><strong>22,400.00</strong></td>
+                    <td>Net 60</td>
+                    <td><span class="status-badge status-badge--delivered">Delivered</span></td>
+                    <td>
+                        <a href="#" style="color: #003DA5; font-weight: 600; margin-right: 12px;">Reorder</a>
+                        <a href="#" style="color: #003DA5; font-weight: 600;">Invoice</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>ORD-2024-1798</strong></td>
+                    <td>Nov 22, 2024</td>
+                    <td>6 items</td>
+                    <td><strong>5,100.00</strong></td>
+                    <td>Net 30</td>
+                    <td><span class="status-badge status-badge--processing">Processing</span></td>
+                    <td>
+                        <a href="#" style="color: #003DA5; font-weight: 600;">View</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>ORD-2024-1780</strong></td>
+                    <td>Nov 15, 2024</td>
+                    <td>20 items</td>
+                    <td><strong>31,750.00</strong></td>
+                    <td>Net 30</td>
+                    <td><span class="status-badge status-badge--delivered">Delivered</span></td>
+                    <td>
+                        <a href="#" style="color: #003DA5; font-weight: 600; margin-right: 12px;">Reorder</a>
+                        <a href="#" style="color: #003DA5; font-weight: 600;">Invoice</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>ORD-2024-1765</strong></td>
+                    <td>Nov 08, 2024</td>
+                    <td>10 items</td>
+                    <td><strong>12,900.00</strong></td>
+                    <td>Net 60</td>
+                    <td><span class="status-badge status-badge--delivered">Delivered</span></td>
+                    <td>
+                        <a href="#" style="color: #003DA5; font-weight: 600; margin-right: 12px;">Reorder</a>
+                        <a href="#" style="color: #003DA5; font-weight: 600;">Invoice</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>ORD-2024-1748</strong></td>
+                    <td>Nov 01, 2024</td>
+                    <td>4 items</td>
+                    <td><strong>3,200.00</strong></td>
+                    <td>Prepaid</td>
+                    <td><span class="status-badge status-badge--pending">Pending</span></td>
+                    <td>
+                        <a href="#" style="color: #003DA5; font-weight: 600; margin-right: 12px;">View</a>
+                        <a href="#" style="color: #E3002B; font-weight: 600;">Cancel</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <footer class="site-footer">
+        <div class="site-footer__inner">
+            <div class="site-footer__bottom">
+                <p>&copy; 2026 Example Co. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/nav.js"></script>
+</body>
+</html>

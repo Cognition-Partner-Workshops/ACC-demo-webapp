@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Example Co. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Cache/etc/cache.xsd">
+    <type name="example_banner"
+          translate="label,description"
+          instance="Example\Storefront\Model\Cache\BannerCacheType">
+        <label>Hero Banner Data</label>
+        <description>Cached hero banner queries for high-concurrency B2B storefronts</description>
+    </type>
+</config>

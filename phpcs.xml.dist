@@ -9,6 +9,7 @@
 
     <!-- Scope: only our custom module code -->
     <file>app/code</file>
+    <file>app/design</file>
 
     <!-- Tests follow the same standards but skip a few noise rules -->
     <exclude-pattern>*/Test/*</exclude-pattern>

@@ -1,0 +1,56 @@
+<?php
+/**
+ * Copyright © Example Co. All rights reserved.
+ */
+
+declare(strict_types=1);
+
+use Example\Storefront\Api\Data\BannerInterface;
+use Example\Storefront\ViewModel\HeroBannerViewModel;
+use Magento\Framework\Escaper;
+use Magento\Framework\View\Element\Template;
+
+/** @var Template $block */
+/** @var Escaper $escaper */
+/** @var HeroBannerViewModel $viewModel */
+$viewModel = $block->getData('hero_view_model');
+$banners = $viewModel->getActiveBanners();
+?>
+<?php if (!empty($banners)): ?>
+<section class="hero-banner" data-role="hero-carousel"
+         data-mage-init='{"heroCarousel": {}}'>
+    <div class="hero-banner__slides">
+        <?php foreach ($banners as $index => $banner): ?>
+            <div class="hero-banner__slide <?= $index === 0 ? 'hero-banner__slide--active' : '' ?>"
+                 style="background-image: url('<?= $escaper->escapeUrl($banner->getImageUrl()) ?>')">
+                <div class="hero-banner__content">
+                    <h2 class="hero-banner__title">
+                        <?= $escaper->escapeHtml($banner->getTitle()) ?>
+                    </h2>
+                    <?php if ($banner->getSubtitle()): ?>
+                        <p class="hero-banner__subtitle">
+                            <?= $escaper->escapeHtml($banner->getSubtitle()) ?>
+                        </p>
+                    <?php endif; ?>
+                    <?php if ($banner->getCtaLabel() && $banner->getCtaLink()): ?>
+                        <a class="hero-banner__cta"
+                           href="<?= $escaper->escapeUrl($banner->getCtaLink()) ?>">
+                            <?= $escaper->escapeHtml($banner->getCtaLabel()) ?>
+                        </a>
+                    <?php endif; ?>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+    <?php if (count($banners) > 1): ?>
+    <div class="hero-banner__dots">
+        <?php foreach ($banners as $index => $banner): ?>
+            <button class="hero-banner__dot <?= $index === 0 ? 'active' : '' ?>"
+                    data-slide="<?= $escaper->escapeHtmlAttr((string)$index) ?>"
+                    aria-label="<?= $escaper->escapeHtmlAttr('Slide ' . ($index + 1)) ?>">
+            </button>
+        <?php endforeach; ?>
+    </div>
+    <?php endif; ?>
+</section>
+<?php endif; ?>

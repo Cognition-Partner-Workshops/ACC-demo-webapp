@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Order — Nestlé MENA B2B</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="preview-badge">PREVIEW — Example/nestle Theme</div>
+
+    <div class="top-bar">
+        <div class="top-bar__inner">
+            <div class="top-bar__left">
+                <span class="top-bar__region">Middle East &amp; North Africa</span>
+            </div>
+            <div class="top-bar__right">
+                <a href="contact.html" class="top-bar__link">Contact Us</a>
+                <a href="account.html" class="top-bar__link">My Account</a>
+            </div>
+        </div>
+    </div>
+
+    <header class="main-header">
+        <div class="main-header__inner">
+            <a href="index.html" class="main-header__logo">
+                <div class="main-header__logo-icon">
+                    <img src="img/nestle-logo.svg" alt="Nestlé" width="120" height="60">
+                </div>
+            </a>
+            <nav class="main-nav">
+                <ul class="main-nav__list">
+                    <li><a href="index.html" class="main-nav__link">Home</a></li>
+                    <li><a href="catalog.html" class="main-nav__link">Product Catalog</a></li>
+                    <li><a href="quick-order.html" class="main-nav__link main-nav__link--active">Quick Order</a></li>
+                    <li><a href="quote.html" class="main-nav__link">Request Quote</a></li>
+                    <li><a href="account.html" class="main-nav__link">Account</a></li>
+                </ul>
+            </nav>
+            <button class="main-header__hamburger" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="page-hero">
+        <h1>Quick Order</h1>
+        <p>Enter SKU codes and quantities to add items directly to your order</p>
+    </div>
+
+    <div class="page-container">
+        <div class="quick-order-form">
+            <table class="quick-order-table">
+                <thead>
+                    <tr>
+                        <th>SKU</th>
+                        <th>Product Name</th>
+                        <th>Unit Price (AED)</th>
+                        <th>MOQ</th>
+                        <th>Quantity</th>
+                        <th>Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>NSC-CLS-200</td>
+                        <td>NESCAFÉ Classic Instant Coffee 200g</td>
+                        <td>24.50</td>
+                        <td>48</td>
+                        <td><input type="number" class="quick-order-input" value="48" min="48" step="12"></td>
+                        <td><strong>AED 1,176.00</strong></td>
+                    </tr>
+                    <tr>
+                        <td>KTK-4F-415</td>
+                        <td>KIT KAT 4-Finger Milk Chocolate 41.5g</td>
+                        <td>3.75</td>
+                        <td>144</td>
+                        <td><input type="number" class="quick-order-input" value="144" min="144" step="48"></td>
+                        <td><strong>AED 540.00</strong></td>
+                    </tr>
+                    <tr>
+                        <td>MGI-2MN-077</td>
+                        <td>MAGGI 2-Minute Noodles Chicken 77g</td>
+                        <td>1.85</td>
+                        <td>240</td>
+                        <td><input type="number" class="quick-order-input" value="240" min="240" step="60"></td>
+                        <td><strong>AED 444.00</strong></td>
+                    </tr>
+                    <tr>
+                        <td>PRL-STL-150</td>
+                        <td>Pure Life Still Water 1.5L (Pack of 6)</td>
+                        <td>8.90</td>
+                        <td>60</td>
+                        <td><input type="number" class="quick-order-input" value="60" min="60" step="20"></td>
+                        <td><strong>AED 534.00</strong></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="text" class="quick-order-input" style="width: 200px" placeholder="Enter SKU..."></td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td><input type="number" class="quick-order-input" value="0" min="0"></td>
+                        <td>—</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="quick-order-actions">
+                <div style="flex: 1; font-size: 1.2rem; font-weight: 800; color: #1a1a2e;">
+                    Order Total: <span style="color: #003DA5;">AED 2,694.00</span>
+                </div>
+                <button class="btn btn--outline">Save as Draft</button>
+                <button class="btn btn--outline">Upload CSV</button>
+                <button class="btn btn--primary">Submit Order</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="site-footer__inner">
+            <div class="site-footer__bottom">
+                <p>&copy; 2026 Example Co. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/nav.js"></script>
+</body>
+</html>
