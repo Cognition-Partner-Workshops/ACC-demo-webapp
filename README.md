@@ -56,3 +56,10 @@ monitoring picks it up to fix and re-push.
 Enforced via `phpcs --standard=Magento2`. The detailed standards and the ACC build fix-loop guidance
 live in the `acc-standards` skill (`.devin/skills/acc-standards/SKILL.md`). Replace the placeholder
 standards section with your organization's official document when available.
+
+## Standalone PHP version-policy demo
+
+[demos/php-version-gate](demos/php-version-gate/README.md) contains an isolated, local-only workshop demo.
+It compares the original and proposed version constraints with a **harmless simulated marker**, not a CVE exploit.
+The demo is separate from the Magento module and Composer autoloading; it does not change runtime requirements,
+the deployment workflow, or the code-scan verdict. Its README includes Docker startup instructions and tests.

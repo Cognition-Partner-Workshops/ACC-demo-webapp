@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A harmless PHP version-policy simulation. No exploit is executed.">
+  <title>PHP version gate | Standalone lab</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wordmark"><span class="mark" aria-hidden="true">&gt;_</span> Runtime policy lab</div>
+    <span class="mode-label">Standalone simulation</span>
+  </header>
+  <main>
+    <section class="intro" aria-labelledby="title">
+      <p class="eyebrow">Workshop / PHP version enforcement</p>
+      <h1 id="title">One runtime.<br>Two deployment policies.</h1>
+      <p class="lede">See how a missing PHP version floor lets an older runtime through, and how an explicit gate stops it.</p>
+    </section>
+    <aside class="notice" aria-label="Simulation boundaries">
+      <strong>No real exploit. No server takeover.</strong>
+      <span>The marker below is a fixed, fictional result. Version comparisons are real; deployment, request routing, and impact are simulated. This is not a reproduction of PHP2Shell.</span>
+    </aside>
+    <section class="controls" aria-labelledby="scenario-title">
+      <div>
+        <h2 id="scenario-title">Choose a scenario runtime</h2>
+        <p>This selection never changes the PHP running this demo.</p>
+      </div>
+      <div class="control-inputs">
+        <label for="version">Scenario PHP version</label>
+        <select id="version">
+          <option value="8.1.34">8.1.34 — older release line</option>
+          <option value="8.2.0">8.2.0 — below supplied floor</option>
+          <option value="8.2.34">8.2.34 — just below supplied floor</option>
+          <option value="8.2.35">8.2.35 — at supplied floor</option>
+          <option value="8.3.0" selected>8.3.0 — below supplied floor</option>
+          <option value="8.3.35">8.3.35 — just below supplied floor</option>
+          <option value="8.3.36">8.3.36 — at supplied floor</option>
+          <option value="8.3.37">8.3.37 — above supplied floor</option>
+          <option value="8.4.27">8.4.27 — outside both policies</option>
+        </select>
+        <button id="run" class="primary" type="button">Run comparison <span aria-hidden="true">→</span></button>
+      </div>
+    </section>
+    <p id="error" class="error" role="alert" hidden></p>
+    <section class="comparison" aria-label="Side-by-side policy results">
+      <article class="lane" id="original">
+        <div class="lane-heading"><span class="eyebrow">01 / Original policy</span><span class="status" data-field="status">Not run</span></div>
+        <h2>No patch-level floor</h2>
+        <p class="lane-description">The constraint declared by the ACC module.</p>
+        <code class="constraint">~8.1.0 || ~8.2.0 || ~8.3.0</code>
+        <ol class="steps">
+          <li><div class="step-number">1</div><div><h3>Evaluate version gate</h3><p data-field="gate">Waiting for a scenario.</p></div></li>
+          <li><div class="step-number">2</div><div><h3>Simulate a storefront request</h3><p data-field="route">No request has been simulated.</p></div></li>
+          <li><div class="step-number">3</div><div><h3>Show a harmless marker</h3><p data-field="impact">No marker has been generated.</p></div></li>
+        </ol>
+        <div class="marker-panel"><span>Simulation output</span><code data-field="marker">Not run</code></div>
+      </article>
+      <article class="lane" id="proposed">
+        <div class="lane-heading"><span class="eyebrow">02 / Proposed policy</span><span class="status" data-field="status">Not run</span></div>
+        <h2>Explicit version floor</h2>
+        <p class="lane-description">The illustrative constraint supplied with the finding.</p>
+        <code class="constraint">&gt;=8.2.35 &lt;8.3 || &gt;=8.3.36 &lt;8.4</code>
+        <ol class="steps">
+          <li><div class="step-number">1</div><div><h3>Evaluate version gate</h3><p data-field="gate">Waiting for a scenario.</p></div></li>
+          <li><div class="step-number">2</div><div><h3>Simulate a storefront request</h3><p data-field="route">No request has been simulated.</p></div></li>
+          <li><div class="step-number">3</div><div><h3>Show a harmless marker</h3><p data-field="impact">No marker has been generated.</p></div></li>
+        </ol>
+        <div class="marker-panel"><span>Simulation output</span><code data-field="marker">Not run</code></div>
+      </article>
+    </section>
+    <section class="takeaway" aria-labelledby="takeaway-title" aria-live="polite" aria-atomic="true">
+      <h2 id="takeaway-title">What this demonstrates</h2>
+      <p id="summary">Choose a version and run the comparison. Both policies receive the same scenario input.</p>
+    </section>
+    <section class="details-grid">
+      <div class="facts">
+        <h2>Real runtime, fictional impact</h2>
+        <dl>
+          <div><dt>Actual demo PHP</dt><dd id="actual-version">Checking…</dd></div>
+          <div><dt>Actual server mode</dt><dd id="actual-sapi">Checking…</dd></div>
+          <div><dt>Data storage</dt><dd>None</dd></div>
+          <div><dt>Remote target</dt><dd>None</dd></div>
+          <div><dt>Original scan verdict</dt><dd>Inconclusive · unchanged</dd></div>
+        </dl>
+        <p class="footnote">A PHP CLI development server is not a production mod_php or FPM deployment.</p>
+      </div>
+      <div class="limits">
+        <h2>Keep the evidence honest</h2>
+        <p>The cited CVE IDs, CVE-2026-109618 and CVE-2026-109619, and their claimed fixed releases have <strong>not been independently verified</strong>. This lab treats the supplied thresholds as illustrative inputs.</p>
+        <p>The code uses PHP's <code>version_compare</code> for stable three-part versions. It does not run Composer, inspect the ACC host, emulate a PHP memory defect, or prove code execution.</p>
+        <p>For real validation, verify the vendor advisory and test an authorized, representative build without altering its security controls.</p>
+      </div>
+    </section>
+    <details class="response">
+      <summary>Inspect the demo API response</summary>
+      <p>The response records <code>simulation: true</code> and keeps the selected scenario separate from the actual runtime.</p>
+      <pre id="response">Run a comparison to see the response.</pre>
+      <button id="download" type="button" disabled>Download simulation JSON</button>
+    </details>
+  </main>
+  <footer><span>Local workshop only · No scan result changed</span><a href="https://partner-workshops.devinenterprise.com/sessions/d5a6bfcd9d37442c940714e1e2246a2a" rel="noreferrer">Request changes</a></footer>
+</body>
+</html>
