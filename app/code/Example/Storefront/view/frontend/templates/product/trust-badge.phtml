@@ -1,0 +1,21 @@
+<?php
+/**
+ * Copyright © Example Co. All rights reserved.
+ */
+
+declare(strict_types=1);
+
+/** @var \Example\Storefront\Block\ProductTrustBadge $block */
+/** @var \Magento\Framework\Escaper $escaper */
+?>
+<?php if ($block->isBadgeEnabled()): ?>
+    <div class="product-trust-badge"
+         style="margin-top:12px;padding:10px 16px;
+                border:1px solid #2e7d32;border-radius:4px;
+                background:#e8f5e9;color:#1b5e20;
+                font-size:14px;display:inline-flex;
+                align-items:center;gap:8px;">
+        <span>&#10003;</span>
+        <span><?= $escaper->escapeHtml($block->getBadgeMessage()) ?></span>
+    </div>
+<?php endif; ?>
