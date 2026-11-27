@@ -8,4 +8,11 @@
         xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <preference for="Example\Storefront\Api\GreeterInterface"
                 type="Example\Storefront\Model\Greeter"/>
+    <preference for="Example\Storefront\Api\StockUrgencyMessageInterface"
+                type="Example\Storefront\Model\StockUrgencyMessage"/>
+    <type name="Example\Storefront\Model\StockUrgencyMessage">
+        <arguments>
+            <argument name="lowStockThreshold" xsi:type="number">5</argument>
+        </arguments>
+    </type>
 </config>
