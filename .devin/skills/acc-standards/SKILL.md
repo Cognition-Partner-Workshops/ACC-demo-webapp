@@ -19,25 +19,52 @@ use the diagnosis guide to fix it and re-push.
 
 ## 1. Coding standards
 
-> REPLACE THIS SECTION with your organization's official coding-standards document when provided.
-> The rules below are the Magento 2 baseline (enforced by `phpcs --standard=Magento2`) and are a
-> safe default until your standards file is dropped in.
+> These are the project's enforced coding standards for custom Magento 2 modules. They are aligned
+> with the Magento 2 baseline (`phpcs --standard=Magento2`) plus the stricter conventions the team
+> applies to all custom code. Apply every rule to every change.
 
-**PHP**
+**PHP — language & typing**
 - Start every PHP class file with `declare(strict_types=1);` after the file docblock.
 - Full type hints on all parameters and return types. Type all class properties.
-- A PHPDoc block on every class and every method (`@param`, `@return`, `@throws` as applicable).
-- Constructor **dependency injection** only. Never call `ObjectManager::getInstance()` in app code.
+- Prefer **constructor property promotion**: `public function __construct(private LoggerInterface $logger) {}`.
+- A PHPDoc block on every class and every method (`@param`, `@return`, `@throws` as applicable). Use
+  `@phpstan-param array<int, string> $items` for complex array shapes.
+- One blank line before every `return`.
+
+**Dependency injection**
+- Constructor **dependency injection** only. **Never** call `ObjectManager::getInstance()` or inject
+  `ObjectManagerInterface` in app code (no service locators).
+- **Never** instantiate domain objects with `new` or via the ObjectManager — inject the auto-generated
+  `{Class}Factory` and call `->create()`.
 - Prefer **service contracts** (`Api/` interfaces) over concrete classes for public APIs; wire
   implementations with a `<preference>` in `etc/di.xml`.
-- Use plugins (interceptors) or `before/after/around` rather than class rewrites/preferences when
-  modifying core behaviour.
-- Lines ≤ 120 chars. No unused `use` statements. No `private`/`protected` members prefixed with `_`.
+- Use plugins (interceptors: `before`/`after`/`around`) rather than class rewrites/preferences when
+  modifying core behaviour. Check `module.xml` `<sequence>` before adding cross-module DI to avoid
+  circular dependencies.
+
+**Layout & visibility**
+- Lines ≤ 120 characters; classes < 300 lines.
+- `private` by default; **no `protected`** members or methods (use `private` + DI for cross-module
+  calls). `public` only for API/contract methods. No member prefixed with `_`.
+- Always `use` imports at the top — no fully-qualified class names inline. No unused `use` statements.
+- Do **not** mark classes or methods `final` (it blocks mocking in unit tests).
+
+**Absolute prohibitions** (also blocked by CI / commit hooks)
+- `die()`, `exit`, `echo`, `var_dump()`, `print_r()`, `phpinfo()`, `console.log`.
+- Superglobals: `$_GET`, `$_POST`, `$_REQUEST`, `$_SESSION`.
+- Magic methods (`__get`, `__set`, …), hardcoded values, debugging artifacts (`DebuggerUtility`),
+  and left-over merge-conflict markers.
+
+**Logging & error handling**
+- Inject `Psr\Log\LoggerInterface`. Log with structured context, serializing complex arrays before
+  logging (`$this->serializer->serialize($data)`).
+- Catch **specific** exceptions, never the generic `\Exception`. Never silently suppress errors.
 
 **Module structure**
 - All code under `app/code/<Vendor>/<Module>/`. `registration.php` + `etc/module.xml` are required.
 - Configuration in `etc/` (`di.xml`, `events.xml`, `acl.xml`, …) using the correct XSD `schemaLocation`.
-- Tests under `Test/Unit/` (PHPUnit, no Magento bootstrap) — keep domain logic unit-testable.
+- Tests under `Test/Unit/` (PHPUnit, no Magento bootstrap) — keep domain logic unit-testable; use data
+  providers for multi-scenario coverage.
 
 **Copyright** — every source file begins with the project copyright docblock.
 
