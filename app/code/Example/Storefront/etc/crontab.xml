@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Example Co. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Cron/etc/crontab.xsd">
+    <group id="default">
+        <job name="example_storefront_process_replenishments"
+             instance="Example\Storefront\Cron\ProcessReplenishments"
+             method="execute">
+            <schedule>0 2 * * *</schedule>
+        </job>
+    </group>
+</config>
