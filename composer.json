@@ -16,6 +16,11 @@
             "Example\\Storefront\\": "app/code/Example/Storefront/"
         }
     },
+    "autoload-dev": {
+        "files": [
+            "dev/tests/stubs/magento_framework.php"
+        ]
+    },
     "config": {
         "allow-plugins": {
             "dealerdirect/phpcodesniffer-composer-installer": true

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Example Co. All rights reserved.
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="example_storefront_subscription" resource="default" engine="innodb"
+           comment="Auto-Replenishment Subscriptions">
+        <column xsi:type="int" name="subscription_id" identity="true" unsigned="true"
+                nullable="false" comment="Subscription ID"/>
+        <column xsi:type="int" name="customer_id" unsigned="true" nullable="false"
+                comment="Customer ID"/>
+        <column xsi:type="int" name="product_id" unsigned="true" nullable="false"
+                comment="Product ID"/>
+        <column xsi:type="varchar" name="cadence" length="32" nullable="false"
+                comment="Replenishment cadence: weekly|monthly|quarterly"/>
+        <column xsi:type="date" name="next_delivery_date" nullable="false"
+                comment="Next scheduled delivery"/>
+        <column xsi:type="varchar" name="status" length="16" nullable="false" default="active"
+                comment="Subscription status"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="subscription_id"/>
+        </constraint>
+    </table>
+</schema>
